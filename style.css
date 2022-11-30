@@ -1,0 +1,53 @@
+*, *::before, *::after {
+  border-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  ;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.reset {
+  padding: 1rem 1.2rem;
+  font-size: 2rem;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.reset:hover {
+  background-color: #dd0000;
+}
+
+.count {
+  border: 1px solid black;
+  padding: 1rem;
+  font-size: 5rem;
+}
