@@ -2,11 +2,25 @@ const loadLocal = () => {
   const count = document.querySelector('.count')
   count.textContent = localStorage.getItem('value');
   
-  
-  
 }
 
 loadLocal();
+
+
+const setDays = () => {
+  const count = document.querySelector('.count');
+  const userInput = prompt('Set a day');
+  const regex = new RegExp('[^0-9]')
+  if (regex.test(userInput)) {
+    alert('Input a number');
+    console.log('Input contains non-numbers');
+  } else {
+    localStorage.setItem('value', userInput);
+    count.textContent = localStorage.getItem('value');
+    console.log('Input is all numbers, valid input');
+  }
+}
+
 
 const time = setInterval(() => {
   const count = document.querySelector('.count');
@@ -25,6 +39,7 @@ const resetTime = () => {
   })
 }
 
+document.querySelector('.set').addEventListener('click', setDays)
 resetTime();
 
 
