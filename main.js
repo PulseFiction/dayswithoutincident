@@ -1,4 +1,6 @@
 const loadLocal = () => {
+  const date = new Date();
+  localStorage.setItem('date', date.getDay());
   const count = document.querySelector('.count')
   count.textContent = localStorage.getItem('value');
   
@@ -23,10 +25,18 @@ const setDays = () => {
 
 
 const time = setInterval(() => {
+  const date = new Date();
   const count = document.querySelector('.count');
-  count.textContent = parseInt(count.textContent) + 1;
 localStorage.setItem('value', count.textContent);
-}, 86400000)
+localStorage.setItem('dateNow', date.getDay());
+  if (localStorage.getItem('date') !== localStorage.getItem('dateNow')) {
+    count.textContent = parseInt(count.textContent) + 1;
+    localStorage.setItem('date', date.getDay());
+  } else {
+    console.log('Dates are same');
+  }
+
+}, 60000)
 
 const resetTime = () => {
   const count = document.querySelector('.count');
